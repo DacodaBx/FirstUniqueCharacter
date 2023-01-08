@@ -1,5 +1,23 @@
-# FirstUniqueCharacter
-leet code solution in java
+public class FirstUnique {
+    public static void main(String[] args){
+        System.out.println(firstuniquecharacter("sshannon"));
+    }
+    static int firstuniquecharacter(String s){
+        int[] howOften = new int[26];
+        char[] letters = s.toCharArray();
+        for(char c: letters){
+            howOften[c-'a']++;
+        }
+        for(int i = 0; i < letters.length; i++){
+            if(howOften[letters[i]-'a']==1){
+                return i;
+            }
+
+        }
+        return -1;
+    }
+}
+
 // Dacoda's Notes:
 // We are looking for the index number of the first unique number.
 // We need an array to track how often a letter in the alphabet is used, only considering lower case numbers.
